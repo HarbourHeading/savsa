@@ -1,0 +1,111 @@
+@import "./shared_global.css";
+
+.App {
+    background: linear-gradient(to top, #09203f 30%, #537895 100%);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.App__content {
+    z-index: 2;
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+.app__loading {
+    font-size: 50px;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+.profile__header {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile__details {
+    font-size: 24px;
+}
+
+.profile__level {
+  display: flex;
+  align-items: center;
+}
+
+.profile__recentlyPlayed_header {
+    margin-bottom: 8px;
+}
+
+.profile__games {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+
+    p {
+        margin-left: 8px;
+    }
+}
+
+.profile__interactable {
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profile__interactable_Button {
+    margin-top: 35px;
+    background-color: #367ebd;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 0;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 2px 2px lightgray;
+    transition: ease background-color 500ms;
+
+    &:hover {
+        background-color: #2a6495;
+    }
+
+    &:disabled {
+        cursor: default;
+        opacity: 0.7;
+    }
+}
+
+.profile__interactableResult {
+    margin-top: 12px;
+}
+
+@media screen and (max-width: 830px) {
+    .App {
+        background: linear-gradient(to top, #09203f 40%, #537895 100%);
+    }
+}
+
+@media screen and (max-width: 360px) {
+
+    .profile__avatar {
+        float: left;
+    }
+
+    .profile__level {
+        float: right;
+    }
+
+    .profile__games {
+        display: block;
+    }
+}

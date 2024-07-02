@@ -1,0 +1,44 @@
+services:
+  server:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - "5000:5000"
+    env_file: .env
+    environment:
+      - STEAM_API_KEY=$STEAM_API_KEY
+      - DATABASE_URI=mongodb://${DATABASE_ROOT_USERNAME}:${DATABASE_ROOT_PASSWORD}@database:27017/${DATABASE_NAME}?authSource=admin
+      - DATABASE_ROOT_USERNAME=$DATABASE_ROOT_USERNAME
+      - DATABASE_ROOT_PASSWORD=$DATABASE_ROOT_PASSWORD
+      - DATABASE_NAME=$DATABASE_NAME
+    depends_on:
+      - mongodb
+
+  client:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - server
+
+  mongodb:
+    image: mongo:latest
+    container_name: database
+    env_file: .env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$DATABASE_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD=$DATABASE_ROOT_PASSWORD
+      - MONGO_INITDB_DATABASE=$DATABASE_NAME
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/db:/data/db
+      - ./data/docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
+volumes:
+  db:
