@@ -1,7 +1,5 @@
 # Savsa
 
-[Website](https://savsa.liamcodes.dev)
-
 ## Introduction
 
 A fun twist of the popular web game genre "Guess the rank" where you guess the age of a steam account based on level, recent games and more.
