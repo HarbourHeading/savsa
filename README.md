@@ -1,8 +1,8 @@
 # Savsa
 
-<p align="center">
-    <img src="https://github.com/HarbourHeading/savsa/assets/69332989/b7593a05-bc83-41aa-ac92-f8c20da33964" width="1080" height="500"/>
-</p>
+<div style="text-align: center;"><p>
+    <img src="https://github.com/HarbourHeading/savsa/assets/69332989/b7593a05-bc83-41aa-ac92-f8c20da33964" width="1080" height="400" alt="project preview"/>
+</p></div>
 
 <small><i>
     Example image. Entire website not shown.
@@ -37,14 +37,16 @@ mv .env.example .env
 Create a `/data/docker-entrypoint-initdb.d/` directory with a `mongo-init.js` file inside:
 
 ```
-mkdir -p -- data/docker-entrypoint-initdb.d ; cd data/docker-entrypoint-initdb.d ; touch mongo-init.js
+mkdir -p -- data/docker-entrypoint-initdb.d ; cd data/docker-entrypoint-initdb.d ; vim mongo-init.js
 ```
 
-To `mongo-init.js`, Add an account and sample data. Replace user credentials:
+Edit `mongo-init.js`, and copy the data below:
 
 ```
+
 db = db.getSiblingDB(dbName);
 
+// Create a database user. Edit credentials to fit your own.
 db.createUser(
     {
         user: user,
@@ -58,9 +60,10 @@ db.createUser(
     }
 )
 
+// Create MongoDB collection to store steamIDs
 db.createCollection("profiles")
 
-// 2 Sample values
+// 2 Sample steamID values
 db.profiles.insertMany([{steamid: "76561198247488342"}, {steamid: "76561198987276257"}])
 ```
 
