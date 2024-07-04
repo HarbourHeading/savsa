@@ -7,11 +7,11 @@ export const Footer = () => {
 
     const [steamid, setSteamid] = useState('')
 
-    const handleSubmitProfile = async (event) => {
+    async function handleSubmitProfile(event){
         event.preventDefault()  // Prevent page refresh on form submit
 
 
-        if (/[!@#$%^&*()+={}[\]:;"'<>,.?/|\\]/.test(steamid)) {  // Characters not allowed in a profile url. Will always fail in API call
+        if (/[!@#$%^&*()+={}[\]:;"'<>,.?/|\\]/.test(steamid)) {  // Characters not allowed in a profile url. Will always fail to make a successful API request.
             alert('Special characters are not allowed. If you believe this is a mistake, email liam.e.swe@gmail.com')
             return
         }
@@ -19,7 +19,7 @@ export const Footer = () => {
         await axios.post('/api/SteamProfileService/PostSteamID', {steamid: steamid})
             .then((response) => {
 
-                alert(response.data.message || 'Your account has been added!')
+                alert(response.data.message + "id: " + steamid || 'Your account has been added!')
 
 
             })
