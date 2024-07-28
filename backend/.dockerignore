@@ -24,3 +24,6 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Python cache
+__pycache__
