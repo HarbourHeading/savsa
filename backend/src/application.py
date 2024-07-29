@@ -6,15 +6,15 @@ from flask_limiter.util import get_remote_address
 from os import getenv
 from dotenv import load_dotenv
 
-from .db import database
 from .controllers.profile_controller import ProfileController
 
 
 def create_app() -> Flask:
-    """Create flask app and configure"""
-    app = Flask(__name__)
+    """Create flask app and add configurations"""
 
     load_dotenv()
+
+    app = Flask(__name__)
 
     limiter = Limiter(
         get_remote_address,
