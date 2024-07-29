@@ -45,7 +45,7 @@ class ProfileController:
             player_level = player_badges.get('response', {}).get('player_level', None)
             profile_data['player_level'] = player_level
 
-            return jsonify(profile_data)
+            return jsonify(profile_data), 200
         else:
             database.profiles.delete_one({"steamid": steamid})
             return await ProfileController.get_random_profile()
