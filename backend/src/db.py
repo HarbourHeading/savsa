@@ -8,3 +8,4 @@ load_dotenv()
 
 client = MongoClient(getenv("DATABASE_URI"))
 database = client[getenv("DATABASE_NAME")]
+profiles = database["profiles"]
