@@ -12,8 +12,12 @@ def app():
     })
 
     client = mongomock.MongoClient('localhost', 27017)
+    database = client['test']
 
     yield app
+
+    client.drop_database(database)
+    client.close()
 
 
 @pytest.fixture()
