@@ -5,7 +5,7 @@
 </p></div>
 
 <small><i>
-    Example image. Entire website not shown.
+    Example image. Entire website not shown. [Preview project](http://18.197.222.75/).
 </small></i>
 
 ## Introduction
@@ -43,7 +43,6 @@ mkdir -p -- data/docker-entrypoint-initdb.d ; cd data/docker-entrypoint-initdb.d
 Edit `mongo-init.js`, and copy the data below:
 
 ```
-
 db = db.getSiblingDB(dbName);
 
 // Create a database user. Edit credentials to fit your own.
