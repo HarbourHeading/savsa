@@ -16,7 +16,7 @@ export const Footer = () => {
             return
         }
 
-        await axios.post('/api/SteamProfileService/PostSteamID', {steamid: steamid})
+        await axios.post('/api/SteamProfileService/v1/PostSteamID', {steamid: steamid})
             .then((response) => {
 
                 alert(response.data.message + " id: " + steamid || 'Your account has been added!')

@@ -12,23 +12,19 @@ function App() {
     const [guessResult, setGuessResult] = useState('')
     const [isNewProfileLoaded, setIsNewProfileLoaded] = useState(false)
 
-
     function submitGuess() {
         let answerValue = data.timecreated ? new Date(data.timecreated * 1000).getFullYear() : null
 
         if (inputValue === answerValue) {
             setGuessResult('Correct! The answer was: ' + answerValue)
-        }
-
-        else {
+        } else {
             setGuessResult('Incorrect. The answer was: ' + answerValue)
         }
-
         setIsNewProfileLoaded(false)
     }
 
     async function fetchData() {
-        await axios.get('/api/SteamProfileService/GetRandomProfile')
+        await axios.get('/api/SteamProfileService/v1/GetRandomProfile')
             .then((response) => {
 
                 setData(response.data)
@@ -50,7 +46,6 @@ function App() {
     }, [])
 
     return (
-        /* Render header and footer */
         <div className={styles.App}>
             <div className={styles.App__content}>
                 {loading ? (
