@@ -24,9 +24,9 @@ def create_app() -> Flask:
         default_limits=["1000 per day", "100 per hour"]
     )
 
-    app.add_url_rule("/api/SteamProfileService/GetRandomProfile", methods=["GET"],
+    app.add_url_rule("/api/SteamProfileService/v1/GetRandomProfile", methods=["GET"],
                      view_func=limiter.limit("2 per second")(ProfileController.get_random_profile))
-    app.add_url_rule("/api/SteamProfileService/PostSteamID", methods=["POST"],
+    app.add_url_rule("/api/SteamProfileService/v1/PostSteamID", methods=["POST"],
                      view_func=limiter.limit("3 per minute")(ProfileController.post_steam_id))
 
     return app
