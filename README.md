@@ -1,7 +1,7 @@
 # Savsa
 
 
-A fun twist of the popular web game genre "Guess the rank" where you guess the age of a steam account based on level, recent games and more. As per [Steam's Web API Terms of Use](https://steamcommunity.com/dev/apiterms), the sample profiles are added with explicit permission from all parties involved. [Preview project](http://18.197.222.75/).
+A fun twist of the popular web game genre "Guess the rank" where you guess the age of a steam account based on level, recent games and more. As per [Steam's Web API Terms of Use](https://steamcommunity.com/dev/apiterms), the sample profiles are added with explicit permission from all parties involved.
 
 ## Getting started
 
